@@ -1,6 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Animate the first image moving up and to the left
 gsap.to(".first", {
   scrollTrigger: {
     trigger: ".container",
@@ -13,7 +12,6 @@ gsap.to(".first", {
   duration: 1,
 });
 
-// Animate the second image moving up and to the left
 gsap.to(".second", {
   scrollTrigger: {
     trigger: ".container",
@@ -53,46 +51,47 @@ gsap.to(".four", {
 });
 
 // Animate the display of the extra image halfway through the scroll
-gsap.to(".extra", {
-  scrollTrigger: {
-    trigger: ".container",
-    start: "top 50%", // Start the animation when the top of the container reaches the middle of the viewport
-    end: "bottom top",
-    scrub: true,
-    onEnter: () =>
-      gsap.set(".extra", { display: "block", opacity: 1, duration: 1 }),
-    onLeaveBack: () =>
-      gsap.to(".extra", { display: "none", opacity: 0, duration: 1 }),
+const extraImage = document.querySelector(".extra");
+
+// Create a ScrollTrigger instance
+ScrollTrigger.create({
+  trigger: extraImage,
+  start: "center 70%",
+  onEnter: () => {
+    gsap.set(extraImage, { display: "block" });
   },
-  opacity: 1,
-  duration: 1,
+  onLeaveBack: () => {
+    gsap.set(extraImage, { display: "none" });
+  },
 });
 
 
-
-function toggleTitles() {
   const firstTitle = document.querySelector(".first-title");
   const secondTitle = document.querySelector(".second-title");
 
-  // Use ScrollTrigger to create a trigger based on scroll position
-  ScrollTrigger.create({
-    // Trigger the animation when the element comes into view
-    trigger: ".second-title",
-    start: "top center", // Start when the top of .second-title reaches the center of the viewport
-    onToggle: (self) => {
-      if (self.isActive) {
-        // When .second-title is in view, hide .first-title
-        gsap.to(firstTitle, { autoAlpha: 0, display: "none" });
-        gsap.to(secondTitle, { autoAlpha: 1, display: "block" });
-      } else {
-        // When .second-title is out of view, show .first-title
-        gsap.to(firstTitle, { autoAlpha: 1, display: "block" });
-        gsap.to(secondTitle, { autoAlpha: 0, display: "none" });
+  gsap.fromTo(".first-title", 
+  { opacity: 1 }, 
+  {
+      opacity: 0,
+      scrollTrigger: {
+          trigger: ".first-title",
+          start: "top 90%", 
+          end: "top 50%",
+          scrub: true,
+          onLeave: function() {
+              gsap.set(".first-title", { display: "none" });
+              gsap.set(".second-title", { display: "inline" });
+              gsap.fromTo(".second-title", 
+                  { opacity: 0, y: 20 }, 
+                  { opacity: 1, y: 0, duration: 1 });
+          },
+          onEnterBack: function() {
+              gsap.set(".second-title", { display: "none" });
+              gsap.set(".first-title", { display: "inline" });
+              gsap.fromTo(".first-title", 
+                  { opacity: 0, y: 20 }, 
+                  { opacity: 1, y: 0, duration: 1 });
+          }
       }
-    },
-  });
-}
-
-
-// Call the toggleTitles function when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", toggleTitles);
+  }
+);

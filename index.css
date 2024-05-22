@@ -20,10 +20,9 @@ body {
 }
 
 .container {
-    height: 750px;
+    height: 780px;
     display: flex;
     align-items:center;
-    /* For demonstration purposes, set a height to create scroll */
 }
 
 .box-class {
@@ -86,18 +85,27 @@ body {
     width: 100px;
     height: 100px;
     opacity: 0;
+    background-color: aqua;
 }
 
 .titles {
     margin-top: 50px;
+    width: 50%;
 }
 
 .first-title,
 .second-title {
-    opacity: 0; /* Hide the titles initially */
+    opacity: 0; 
     width: 75%;
 }
 p{
     margin-top: 24px;
     width: 75%;
+}
+.second-title {
+    display: none;
+}
+
+h2 span{
+    font-size: 36px;
 }
