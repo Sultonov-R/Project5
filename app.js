@@ -50,18 +50,16 @@ gsap.to(".four", {
   duration: 1,
 });
 
-// Animate the display of the extra image halfway through the scroll
-const extraImage = document.querySelector(".extra");
+const extraImage = document.querySelector('.extra');
 
-// Create a ScrollTrigger instance
 ScrollTrigger.create({
   trigger: extraImage,
-  start: "center 70%",
+  start: "top 40%",
   onEnter: () => {
-    gsap.set(extraImage, { display: "block" });
+    extraImage.classList.add("visible");
   },
   onLeaveBack: () => {
-    gsap.set(extraImage, { display: "none" });
+    extraImage.classList.remove("visible");
   },
 });
 

@@ -22,7 +22,7 @@ body {
 .container {
     height: 780px;
     display: flex;
-    align-items:center;
+    align-items: center;
 }
 
 .box-class {
@@ -80,12 +80,14 @@ body {
 .extra {
     display: none;
     position: absolute;
-    top: 100px;
-    left: 100px;
-    width: 100px;
-    height: 100px;
-    opacity: 0;
-    background-color: aqua;
+    top: 65px;
+    left: -26px;
+    width: 410px;
+    height: 155px;
+}
+
+.visible {
+    display: block !important;
 }
 
 .titles {
@@ -95,17 +97,19 @@ body {
 
 .first-title,
 .second-title {
-    opacity: 0; 
+    opacity: 0;
     width: 75%;
 }
-p{
+
+p {
     margin-top: 24px;
     width: 75%;
 }
+
 .second-title {
     display: none;
 }
 
-h2 span{
+h2 span {
     font-size: 36px;
 }
