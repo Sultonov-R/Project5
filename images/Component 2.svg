@@ -1,0 +1,14 @@
+<svg width="509" height="400" viewBox="0 0 509 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2015_13)">
+<path d="M233.119 283.279L170.628 389.709L55.3643 191.95L0 97.7993L2.97006 92.7339L57.3927 0C71.7725 8.60756 84.0334 20.2967 93.2699 34.2351L99.2101 44.2948" fill="url(#paint0_linear_2015_13)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2015_13" x1="82.7844" y1="-0.135505" x2="229.214" y2="864.272" gradientUnits="userSpaceOnUse">
+<stop stop-color="#206DFE"/>
+<stop offset="0.64" stop-color="#000051"/>
+</linearGradient>
+<clipPath id="clip0_2015_13">
+<rect width="233.119" height="389.709" fill="white"/>
+</clipPath>
+</defs>
+</svg>
