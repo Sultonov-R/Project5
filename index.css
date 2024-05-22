@@ -1,39 +1,53 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-.container{
-    width: 100%;
-    height: 100vh;
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#scrollIndicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    height: 750px;
     display: flex;
     align-items:center;
+    /* For demonstration purposes, set a height to create scroll */
 }
-.box-class{
+
+.box-class {
     width: 60%;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
 }
+
 .box {
-    width: 400px;
-    height: 300px;
-    /* margin: 0px auto; */
+    width: 300px;
+    height: 200px;
     position: relative;
-    overflow: hidden; 
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-.first, .second, .third, .four {
+.first,
+.second,
+.third,
+.four {
     position: absolute;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
 }
 
 .first {
@@ -42,22 +56,19 @@
     left: 30px;
     height: 200px;
     z-index: 999;
-    animation-name: moveFirst;
 }
 
 .second {
-    top: 74px;
-    left: 180px;
+    top: 73px;
+    left: 179px;
     width: 270px;
     height: 200px;
-    animation-name: moveSecond;
 }
 
 .third {
     top: 24px;
     left: 52px;
     width: 120px;
-    animation-name: moveThird;
 }
 
 .four {
@@ -65,95 +76,28 @@
     left: 110px;
     width: 220px;
     height: 170px;
-    animation-name: moveFour;
 }
 
 .extra {
-    display: none; 
+    display: none;
     position: absolute;
     top: 100px;
     left: 100px;
     width: 100px;
     height: 100px;
-}
-
-@keyframes moveFirst {
-    from {
-        transform: translate(0, 0); 
-    }
-    to {
-        transform: translate(-30px, -35px);
-    }
-}
-
-@keyframes moveSecond {
-    from {
-        transform: translate(0, 0); 
-    }
-    to {
-        transform: translate(-30px, -35px); 
-    }
-}
-
-@keyframes moveThird {
-    from {
-        transform: translate(0, 0); 
-    }
-    to {
-        transform: translate(30px, 40px); 
-    }
-}
-
-@keyframes moveFour {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(30px, 40px); 
-    }
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-.first-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    animation: fadeOut 2s forwards;
-}
-
-.second-title {
-    display: none;
     opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    animation: fadeIn 2s forwards;
 }
 
-.titles{
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    gap: 40px;
-    position: relative;
+.titles {
+    margin-top: 50px;
 }
-.titles h1{
-    font-size: 50px;
+
+.first-title,
+.second-title {
+    opacity: 0; /* Hide the titles initially */
     width: 75%;
 }
-.titles p{
-    margin-top: 250px;
+p{
+    margin-top: 24px;
     width: 75%;
-    opacity: 0.7;
 }
